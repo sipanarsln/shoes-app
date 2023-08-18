@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TitleText extends StatelessWidget {
-  TitleText({
+class SubTitleText extends StatelessWidget {
+  SubTitleText({
     super.key,
     required this.text,
   });
@@ -14,7 +14,8 @@ class TitleText extends StatelessWidget {
     return Text(
       text,
       textAlign: TextAlign.start,
-      style: GoogleFonts.outfit(fontSize: 25, fontWeight: FontWeight.bold),
+      style: GoogleFonts.outfit(
+          fontSize: 20, fontWeight: FontWeight.bold, color: Colors.grey),
     );
   }
 }

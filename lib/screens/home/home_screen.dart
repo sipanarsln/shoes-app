@@ -3,7 +3,10 @@ import 'package:kartal/kartal.dart';
 import 'package:shoes_app/constants/string_constants.dart';
 import 'package:shoes_app/widget/brand_category.dart';
 import 'package:shoes_app/widget/category.dart';
+import 'package:shoes_app/widget/product_list_view.dart';
 import 'package:shoes_app/widget/see_all.dart';
+import 'package:shoes_app/widget/text/price_text.dart';
+import 'package:shoes_app/widget/text/sub_title_text.dart';
 import 'package:shoes_app/widget/text/title_text.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,134 +20,153 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: context.padding.low,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const SizedBox(height: 60),
-            Row(
+      body: ListView(
+        children: [
+          Padding(
+            padding: context.padding.low,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                TitleText(text: StringConstants.category),
-              ],
-            ),
-            const SizedBox(height: 20),
-            const categoryList(),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TitleText(text: StringConstants.selectBrand),
-                const seeAll(),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Row(
-              children: [
-                Container(
-                  height: 80,
-                  width: 200,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.transparent,
-                    border: Border.all(width: 1, color: Colors.black),
-                  ),
-                  child: BrandCategory(text: StringConstants.categoryAdidas),
+                Row(
+                  children: [
+                    TitleText(text: StringConstants.category),
+                  ],
                 ),
-                Padding(
-                  padding: context.padding.onlyLeftLow,
-                  child: Container(
-                    height: 80,
-                    width: 200,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.transparent,
-                      border: Border.all(width: 1, color: Colors.black),
+                const SizedBox(height: 20),
+                const categoryList(),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TitleText(text: StringConstants.selectBrand),
+                    const seeAll(),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  children: [
+                    Container(
+                      height: 80,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.transparent,
+                        border: Border.all(width: 1, color: Colors.black),
+                      ),
+                      child:
+                          BrandCategory(text: StringConstants.categoryAdidas),
                     ),
-                    child: BrandCategory(text: StringConstants.categoryPuma),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Row(
-              children: [
-                Container(
-                  height: 80,
-                  width: 200,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.transparent,
-                    border: Border.all(width: 1, color: Colors.black),
-                  ),
-                  child: BrandCategory(text: StringConstants.categoryNike),
-                ),
-                Padding(
-                  padding: context.padding.onlyLeftLow,
-                  child: Container(
-                    height: 80,
-                    width: 200,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.transparent,
-                      border: Border.all(width: 1, color: Colors.black),
+                    Padding(
+                      padding: context.padding.onlyLeftLow,
+                      child: Container(
+                        height: 80,
+                        width: 200,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.transparent,
+                          border: Border.all(width: 1, color: Colors.black),
+                        ),
+                        child:
+                            BrandCategory(text: StringConstants.categoryPuma),
+                      ),
                     ),
-                    child: BrandCategory(text: StringConstants.categoryCrocs),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Row(
-              children: [
-                Container(
-                  height: 80,
-                  width: 200,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.transparent,
-                    border: Border.all(width: 1, color: Colors.black),
-                  ),
-                  child: BrandCategory(text: StringConstants.categorySkechers),
-                ),
-                Padding(
-                  padding: context.padding.onlyLeftLow,
-                  child: Container(
-                    height: 80,
-                    width: 200,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.transparent,
-                      border: Border.all(width: 1, color: Colors.black),
+                const SizedBox(height: 20),
+                Row(
+                  children: [
+                    Container(
+                      height: 80,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.transparent,
+                        border: Border.all(width: 1, color: Colors.black),
+                      ),
+                      child: BrandCategory(text: StringConstants.categoryNike),
                     ),
-                    child: BrandCategory(text: StringConstants.categoryReebok),
+                    Padding(
+                      padding: context.padding.onlyLeftLow,
+                      child: Container(
+                        height: 80,
+                        width: 200,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.transparent,
+                          border: Border.all(width: 1, color: Colors.black),
+                        ),
+                        child:
+                            BrandCategory(text: StringConstants.categoryCrocs),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  children: [
+                    Container(
+                      height: 80,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.transparent,
+                        border: Border.all(width: 1, color: Colors.black),
+                      ),
+                      child:
+                          BrandCategory(text: StringConstants.categorySkechers),
+                    ),
+                    Padding(
+                      padding: context.padding.onlyLeftLow,
+                      child: Container(
+                        height: 80,
+                        width: 200,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.transparent,
+                          border: Border.all(width: 1, color: Colors.black),
+                        ),
+                        child:
+                            BrandCategory(text: StringConstants.categoryReebok),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TitleText(text: "What's Popular"),
+                    const seeAll(),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                SizedBox(
+                  height: 175,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      productListView(
+                          title: StringConstants.categoryNike,
+                          image: "assets/products/Nike-Shoe1.png",
+                          subTitle: "Yung - I",
+                          price: "€ 128.99"),
+                      productListView(
+                          title: StringConstants.categoryNike,
+                          image: "assets/products/Nike-Shoe2.png",
+                          subTitle: "Yeezy Boost",
+                          price: "€ 320.40"),
+                      productListView(
+                          title: StringConstants.categoryNike,
+                          image: "assets/products/Nike-Shoe3.png",
+                          subTitle: "Air Presto",
+                          price: "€ 126.99"),
+                    ],
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TitleText(text: "What's Popular"),
-                const seeAll(),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Stack(
-              children: [
-                Container(
-                  height: 143,
-                  width: 303,
-                  decoration: BoxDecoration(
-                      color: const Color(0xffEFEFEF),
-                      borderRadius: BorderRadius.circular(10)),
-                ),
-                const Positioned(top: 20, child: Text("data"))
-              ],
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
