@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
+// ignore: must_be_immutable
 class BrandCategory extends StatelessWidget {
   BrandCategory({super.key, required this.text});
 
@@ -10,7 +11,7 @@ class BrandCategory extends StatelessWidget {
     return Center(
       child: Text(
         text,
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
       ),
     );
   }

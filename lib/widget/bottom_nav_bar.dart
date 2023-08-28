@@ -33,17 +33,17 @@ class MyBottomNavBar extends StatelessWidget {
           GButton(
             iconSize: 40,
             icon: Icons.favorite_border_outlined,
-            text: "Behçem",
+            text: "Fav",
           ),
           GButton(
             iconSize: 40,
             icon: Icons.shopping_cart_outlined,
-            text: "Behçem",
+            text: "Cart",
           ),
           GButton(
             iconSize: 40,
             icon: Icons.person_2_outlined,
-            text: "Behçem",
+            text: "Profile",
           ),
         ],
       ),

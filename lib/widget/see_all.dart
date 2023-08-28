@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shoes_app/constants/string_constants.dart';
 
+// ignore: camel_case_types
 class seeAll extends StatelessWidget {
   const seeAll({
     super.key,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:shoes_app/constants/string_constants.dart';
 import 'package:shoes_app/widget/category.dart';
+import 'package:shoes_app/widget/latest_shoes_container.dart';
 
 import '../widget/brand_category.dart';
 import '../widget/product_list_view.dart';
@@ -160,9 +161,16 @@ class HomePage extends StatelessWidget {
                   const seeAll(),
                 ],
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  LatestShoesContainer(image: "assets/products/Nike-Shoe2.png"),
+                  LatestShoesContainer(image: "assets/products/Nike-Shoe3.png"),
+                ],
+              ),
             ],
           ),
-        ),
+        )
       ],
     );
   }

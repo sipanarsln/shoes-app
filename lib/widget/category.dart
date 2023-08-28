@@ -19,9 +19,9 @@ class Category extends StatelessWidget {
       width: 200,
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xffECCD5F), Color(0xffC5FF7B)]),
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            colors: [Color(0xff98b0b7), Color(0xffc2c8c5)]),
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Colors.black, width: 1),
       ),
