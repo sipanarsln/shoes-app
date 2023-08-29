@@ -1,23 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
+import 'package:shoes_app/models/product.dart';
 import 'package:shoes_app/widget/text/price_text.dart';
 import 'package:shoes_app/widget/text/sub_title_text.dart';
 import 'package:shoes_app/widget/text/title_text.dart';
 
 // ignore: must_be_immutable, camel_case_types
 class productListView extends StatelessWidget {
-  productListView({
-    super.key,
-    required this.image,
-    required this.title,
-    required this.subTitle,
-    required this.price,
-  });
+  productListView({super.key, required this.product});
 
-  String image;
-  String title;
-  String subTitle;
-  String price;
+  Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +35,7 @@ class productListView extends StatelessWidget {
             left: 65,
             top: -45,
             child: Image.asset(
-              image,
+              product.image,
               height: 250,
             ),
           ),
@@ -51,9 +44,22 @@ class productListView extends StatelessWidget {
             left: 30,
             child: Column(
               children: [
-                TitleText(text: title),
-                SubTitleText(text: subTitle),
-                PriceText(text: price),
+                Text(product.brandName,
+                    textAlign: TextAlign.start,
+                    style: GoogleFonts.outfit(
+                        fontSize: 25, fontWeight: FontWeight.bold)),
+                Text(product.productName,
+                    style: GoogleFonts.outfit(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey)),
+                Text(
+                  product.price,
+                  style: GoogleFonts.outfit(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ],
             ),
           ),

@@ -1,36 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import 'package:shoes_app/models/product.dart';
 
-class LatestShoesContainer extends StatelessWidget {
+class LatestShoesContainer extends StatefulWidget {
   LatestShoesContainer({
-    required this.image,
+    required this.product,
     super.key,
   });
 
-  String image;
+  Product product;
 
   @override
+  State<LatestShoesContainer> createState() => _LatestShoesContainerState();
+}
+
+Color _iconColor = Colors.grey;
+bool click = true;
+
+class _LatestShoesContainerState extends State<LatestShoesContainer> {
+  @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: context.padding.onlyLeftLow + context.padding.onlyRightLow,
-      child: Container(
-        height: 180,
-        width: 180,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.grey[100],
-          image: DecorationImage(
-            fit: BoxFit.contain,
-            image: AssetImage(image),
-          ),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.grey[100],
+        image: DecorationImage(
+          image: AssetImage(widget.product.image),
         ),
-        alignment: Alignment.topRight,
-        child: Padding(
-          padding: context.padding.onlyTopLow,
-          child: Icon(
-            Icons.favorite_border_outlined,
-            size: 40,
-            color: Colors.grey[500],
+      ),
+      alignment: Alignment.topRight,
+      child: Padding(
+        padding: context.padding.onlyTopLow,
+        child: IconButton(
+          onPressed: () {
+            if (click == false) {
+              _iconColor = Colors.grey;
+            } else {
+              _iconColor = Colors.red;
+            }
+          },
+          icon: Icon(
+            (click == true) ? Icons.favorite_border : Icons.favorite_outlined,
+            color: _iconColor,
           ),
         ),
       ),

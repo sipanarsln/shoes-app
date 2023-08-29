@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 
 // ignore: must_be_immutable
-class BrandCategory extends StatelessWidget {
-  BrandCategory({super.key, required this.text});
+class BrandCategoryName extends StatelessWidget {
+  BrandCategoryName({super.key, required this.text});
 
   String text;
 
