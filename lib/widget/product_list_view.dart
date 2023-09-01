@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kartal/kartal.dart';
 import 'package:shoes_app/models/product.dart';
-import 'package:shoes_app/widget/text/price_text.dart';
-import 'package:shoes_app/widget/text/sub_title_text.dart';
-import 'package:shoes_app/widget/text/title_text.dart';
 
 // ignore: must_be_immutable, camel_case_types
 class productListView extends StatelessWidget {

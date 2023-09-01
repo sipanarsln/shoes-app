@@ -4,11 +4,10 @@ import 'package:provider/provider.dart';
 import 'package:shoes_app/constants/string_constants.dart';
 import 'package:shoes_app/models/product.dart';
 import 'package:shoes_app/models/product_shop.dart';
+import 'package:shoes_app/pages/detail_page.dart';
 import 'package:shoes_app/widget/brand_container.dart';
 import 'package:shoes_app/widget/category.dart';
 import 'package:shoes_app/widget/latest_shoes_container.dart';
-
-import '../widget/brand_category_name.dart';
 import '../widget/product_list_view.dart';
 import '../widget/see_all.dart';
 import '../widget/text/title_text.dart';
@@ -18,7 +17,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Consumer<ProductShop>(
       builder: (context, value, child) => ListView(
         children: [
@@ -109,6 +107,13 @@ class HomePage extends StatelessWidget {
                       Product eachProduct = value.productShop[index];
                       return LatestShoesContainer(
                         product: eachProduct,
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      DetailPage(eachProduct)));
+                        },
                       );
                     },
                   ),
