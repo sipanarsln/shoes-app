@@ -11,7 +11,10 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(product.brandName),
+        title: Text(
+          product.brandName,
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
+        ),
         actions: [
           Padding(
             padding: context.padding.onlyRightLow,
@@ -33,10 +36,8 @@ class DetailPage extends StatelessWidget {
             left: 10,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 1, horizontal: -30),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(205),
                 ),
               ),
               onPressed: () {},
@@ -46,7 +47,7 @@ class DetailPage extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 120,
+            top: 130,
             left: 10,
             child: GestureDetector(
               onTap: () {},
@@ -62,13 +63,13 @@ class DetailPage extends StatelessWidget {
                 ),
                 onPressed: () {},
                 child: const Text(
-                  "39",
+                  "40",
                 ),
               ),
             ),
           ),
           Positioned(
-            top: 170,
+            top: 190,
             left: 10,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -80,12 +81,12 @@ class DetailPage extends StatelessWidget {
               ),
               onPressed: () {},
               child: const Text(
-                "39",
+                "41",
               ),
             ),
           ),
           Positioned(
-            top: 220,
+            top: 250,
             left: 10,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -97,14 +98,12 @@ class DetailPage extends StatelessWidget {
               ),
               onPressed: () {},
               child: const Text(
-                "39",
+                "42",
               ),
             ),
           ),
           Positioned(
-              top: 50,
-              left: 180,
-              child: Image.asset("assets/logos/adidas_logo.png")),
+              top: 50, left: 180, child: Image.asset(product.brandImage)),
           Positioned(
             bottom: -20,
             left: 0,
@@ -141,8 +140,12 @@ class DetailPage extends StatelessWidget {
                   ),
                   backgroundColor: const Color(0xffC5FF7B)),
               onPressed: () {},
-              child:
-                  const Text("In stock", style: TextStyle(color: Colors.black)),
+              child: const Text(
+                "In stock",
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+              ),
             ),
           ),
           Positioned(

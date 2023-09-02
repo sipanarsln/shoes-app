@@ -29,11 +29,11 @@ class productListView extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 65,
-            top: -45,
+            left: 115,
+            top: -20,
             child: Image.asset(
               product.image,
-              height: 250,
+              height: 180,
             ),
           ),
           Positioned(
@@ -45,11 +45,13 @@ class productListView extends StatelessWidget {
                     textAlign: TextAlign.start,
                     style: GoogleFonts.outfit(
                         fontSize: 25, fontWeight: FontWeight.bold)),
-                Text(product.productName,
-                    style: GoogleFonts.outfit(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey)),
+                Text(
+                  product.productName,
+                  style: GoogleFonts.outfit(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey),
+                ),
                 Text(
                   product.price,
                   style: GoogleFonts.outfit(
