@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shoes_app/pages/home_page.dart';
 import 'package:shoes_app/pages/profil_page.dart';
-import 'package:shoes_app/pages/shop_page.dart';
+import 'package:shoes_app/pages/cart_page.dart';
 import 'package:shoes_app/widget/bottom_nav_bar.dart';
 
 import 'fav_page.dart';
@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _pages = [
     const HomePage(),
     const FavPage(),
-    const ShopPage(),
+    CartPage(),
     const ProfilPage()
   ];
   @override

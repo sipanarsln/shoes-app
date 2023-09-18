@@ -99,8 +99,8 @@ class HomePage extends StatelessWidget {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisSpacing: 15, //yatay aralık
-                      mainAxisSpacing: 15, // dikey aralık
-                      mainAxisExtent: 180, //uzunluk ayarlama
+                      mainAxisSpacing: 20, // dikey aralık
+                      mainAxisExtent: 220, //uzunluk ayarlama
                       crossAxisCount: 2, //aynı sırada kaç ürün listeleme
                     ),
                     itemBuilder: (context, index) {
@@ -109,15 +109,16 @@ class HomePage extends StatelessWidget {
                         product: eachProduct,
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      DetailPage(eachProduct)));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailPage(eachProduct),
+                            ),
+                          );
                         },
                       );
                     },
                   ),
-                )
+                ),
 
                 // const SizedBox(height: 20),
                 // SizedBox(

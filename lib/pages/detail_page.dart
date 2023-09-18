@@ -1,19 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import 'package:provider/provider.dart';
 import 'package:shoes_app/models/product.dart';
+import 'package:shoes_app/models/product_shop.dart';
 import 'package:shoes_app/widget/text/title_text.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
   final Product product;
   const DetailPage(this.product, {super.key});
 
+  @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+
+void addToCart(BuildContext context, Product product) {
+  Provider.of<ProductShop>(context, listen: false).addItemToCart(product);
+}
+
+class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          product.brandName,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
+          widget.product.brandName,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
         ),
         actions: [
           Padding(
@@ -34,76 +45,28 @@ class DetailPage extends StatelessWidget {
           Positioned(
             top: 70,
             left: 10,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(205),
+            child: Container(
+              height: 55,
+              width: 45,
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [
+                    Color(0xffE9CB63),
+                    Color(0xffC5FF7B),
+                  ],
                 ),
+                borderRadius: BorderRadius.circular(5),
               ),
-              onPressed: () {},
-              child: const Text(
-                "39",
+              child: const Center(
+                child: Text("39"),
               ),
             ),
           ),
           Positioned(
-            top: 130,
-            left: 10,
-            child: GestureDetector(
-              onTap: () {},
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.red,
-                  foregroundColor: Colors.white,
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 1, horizontal: -30),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                ),
-                onPressed: () {},
-                child: const Text(
-                  "40",
-                ),
-              ),
-            ),
+            top: 50,
+            left: 180,
+            child: Image.asset(widget.product.brandImage),
           ),
-          Positioned(
-            top: 190,
-            left: 10,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 1, horizontal: -30),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
-              ),
-              onPressed: () {},
-              child: const Text(
-                "41",
-              ),
-            ),
-          ),
-          Positioned(
-            top: 250,
-            left: 10,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 1, horizontal: -30),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
-              ),
-              onPressed: () {},
-              child: const Text(
-                "42",
-              ),
-            ),
-          ),
-          Positioned(
-              top: 50, left: 180, child: Image.asset(product.brandImage)),
           Positioned(
             bottom: -20,
             left: 0,
@@ -117,7 +80,7 @@ class DetailPage extends StatelessWidget {
             top: 60,
             right: 20,
             child: Image.asset(
-              product.image,
+              widget.product.image,
               width: 400,
               height: 400,
               fit: BoxFit.contain,
@@ -126,7 +89,7 @@ class DetailPage extends StatelessWidget {
           Positioned(
             bottom: 250,
             left: 20,
-            child: TitleText(text: product.price),
+            child: TitleText(text: widget.product.price),
           ),
           Positioned(
             bottom: 245,
@@ -153,7 +116,7 @@ class DetailPage extends StatelessWidget {
             width: 400,
             left: 20,
             bottom: 110,
-            child: Text(product.description),
+            child: Text(widget.product.description),
           ),
           Positioned(
             bottom: 20,
@@ -167,7 +130,9 @@ class DetailPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                addToCart(context, widget.product);
+              },
               child: const Text(
                 "Add to cart",
                 style: TextStyle(

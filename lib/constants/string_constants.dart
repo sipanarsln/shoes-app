@@ -11,4 +11,8 @@ class StringConstants {
   static const String categorySkechers = "Skecher";
   static const String categoryReebok = "Reebok";
   static const String seeAll = "see all";
+  static const String nikeYellow = "Yellow Shoes";
+  static const String nikeWhite = "White Shoes";
+  static const String adidasRed = "Red Shoes";
+  static const String adidasBlack = "Black Shoes";
 }

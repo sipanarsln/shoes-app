@@ -41,10 +41,12 @@ class productListView extends StatelessWidget {
             left: 30,
             child: Column(
               children: [
-                Text(product.brandName,
-                    textAlign: TextAlign.start,
-                    style: GoogleFonts.outfit(
-                        fontSize: 25, fontWeight: FontWeight.bold)),
+                Text(
+                  product.brandName,
+                  textAlign: TextAlign.start,
+                  style: GoogleFonts.outfit(
+                      fontSize: 25, fontWeight: FontWeight.bold),
+                ),
                 Text(
                   product.productName,
                   style: GoogleFonts.outfit(
