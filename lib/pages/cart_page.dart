@@ -5,7 +5,7 @@ import 'package:shoes_app/models/product_shop.dart';
 import 'package:shoes_app/widget/cart_tile.dart';
 
 class CartPage extends StatefulWidget {
-  CartPage({super.key});
+  const CartPage({super.key});
 
   @override
   State<CartPage> createState() => _CartPageState();

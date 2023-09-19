@@ -3,6 +3,7 @@ import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
 import 'package:shoes_app/models/product.dart';
 import 'package:shoes_app/models/product_shop.dart';
+import 'package:shoes_app/widget/favbutton.dart';
 import 'package:shoes_app/widget/text/title_text.dart';
 
 class DetailPage extends StatefulWidget {
@@ -29,7 +30,7 @@ class _DetailPageState extends State<DetailPage> {
         actions: [
           Padding(
             padding: context.padding.onlyRightLow,
-            child: const Icon(Icons.favorite_border_outlined),
+            child: FavButton(product: widget.product),
           ),
         ],
       ),

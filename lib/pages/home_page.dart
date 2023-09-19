@@ -76,6 +76,14 @@ class HomePage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       Product eachProduct = value.productShop[index];
                       return productListView(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailPage(eachProduct),
+                            ),
+                          );
+                        },
                         product: eachProduct,
                       );
                     },

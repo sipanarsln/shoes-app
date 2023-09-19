@@ -40,10 +40,12 @@ class ProductShop extends ChangeNotifier {
   ];
 
   final List<Product> _userCart = [];
+  final List<Product> _favProduct = [];
 
   List<Product> get productShop => _product;
 
   List<Product> get userCart => _userCart;
+  List<Product> get favProduct => _favProduct;
 
   void addItemToCart(Product product) {
     _userCart.add(product);
@@ -53,5 +55,21 @@ class ProductShop extends ChangeNotifier {
   void removeItemFromCart(Product product) {
     _userCart.remove(product);
     notifyListeners();
+  }
+
+  void toggleFavorite(Product product) {
+    final isExist = _favProduct.contains(product);
+
+    if (isExist) {
+      _favProduct.remove(product);
+    } else {
+      _favProduct.add(product);
+    }
+    notifyListeners();
+  }
+
+  bool isExist(Product product) {
+    final isExist = _favProduct.contains(product);
+    return isExist;
   }
 }

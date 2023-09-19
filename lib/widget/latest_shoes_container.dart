@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import 'package:provider/provider.dart';
 import 'package:shoes_app/models/product.dart';
+import 'package:shoes_app/models/product_shop.dart';
 import 'package:shoes_app/pages/detail_page.dart';
+import 'package:shoes_app/widget/favbutton.dart';
 
 // ignore: must_be_immutable
 class LatestShoesContainer extends StatefulWidget {
@@ -15,10 +18,10 @@ class LatestShoesContainer extends StatefulWidget {
 }
 
 class _LatestShoesContainerState extends State<LatestShoesContainer> {
-  Color _iconColor = Colors.blueGrey;
-
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ProductShop>(context);
+
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -42,22 +45,8 @@ class _LatestShoesContainerState extends State<LatestShoesContainer> {
             alignment: Alignment.topRight,
             child: Padding(
               padding: context.padding.onlyTopLow,
-              child: IconButton(
-                onPressed: () {
-                  setState(
-                    () {
-                      if (_iconColor == Colors.blueGrey) {
-                        _iconColor = Colors.red;
-                      } else {
-                        _iconColor = Colors.blueGrey;
-                      }
-                    },
-                  );
-                },
-                icon: Icon(
-                  Icons.favorite_outlined,
-                  color: _iconColor,
-                ),
+              child: FavButton(
+                product: widget.product,
               ),
             ),
           ),
